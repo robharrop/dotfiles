@@ -1,0 +1,3 @@
+[submodule "emacs/lua-mode"]
+	path = emacs/lua-mode
+	url = https://github.com/immerrr/lua-mode.git
