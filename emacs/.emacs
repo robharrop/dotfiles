@@ -15,10 +15,16 @@
 
 ;; store the base dir
 (setq config-dir (file-name-directory (or load-file-name (buffer-file-name))))
-(message config-dir)
+
+;; set up fonts
+(cond
+ ((and (string-match "linux" system-configuration) (eq window-system 'x))
+    (set-face-attribute 'default nil :font "DejaVu Sans Mono-16"))
+ ((string-match "darwin" system-configuration)
+   (set-face-attribute 'default nil :font "Menlo-16")))
 
 ;; add current directory to the load path
 (add-to-list 'load-path config-dir)
-(message "about load lua")
+
+;; load modules
 (require 'lua-config)
-(message "loaded lua")
