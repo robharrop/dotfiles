@@ -222,6 +222,9 @@ globalkeys = awful.util.table.join(
     -- Custom Programs
     awful.key({ modkey, }, "b", function() awful.util.spawn(browser) end),
 
+    -- Lock
+    awful.key({ modkey}, "F12", function() awful.util.spawn("xlock") end),
+
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
@@ -319,8 +322,11 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Chrome to match always to tag 1 of screen 2
-    { rule = { class = "google-chrome" },
+    { rule = { class = "Google-chrome" },
       properties = { tag = tags[2][1] } },
+    -- Set xosview to match always to tag 9 of screen 2
+    { rule = { class = "XOsview" },
+      properties = { tag = tags[2][9] } },
 }
 -- }}}
 
