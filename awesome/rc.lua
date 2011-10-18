@@ -13,8 +13,11 @@ beautiful.init(awful.util.getdir("config") .. "/themes/awesome-solarized/dark/th
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal --hide-menubar"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
+
+-- Browser
+browser = "google-chrome"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -55,6 +58,7 @@ end
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "emacs", "emacs" },
+   { "chrome", "google-chrome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
@@ -214,6 +218,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+
+    -- Custom Programs
+    awful.key({ modkey, }, "b", function() awful.util.spawn(browser) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
