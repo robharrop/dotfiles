@@ -7,3 +7,7 @@ keysym Control_L = Caps_Lock
 keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L    
+
+! Move the ~ and ` keys next shift
+keycode 94=grave asciitilde
+
