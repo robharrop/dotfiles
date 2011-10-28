@@ -28,3 +28,4 @@
 
 ;; load modules
 (require 'lua-config)
+(require 'ruby-config)
