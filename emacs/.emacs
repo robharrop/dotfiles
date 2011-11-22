@@ -1,9 +1,20 @@
-;; the basics
+ ;; the basics
 (line-number-mode 1)
 (column-number-mode 1)
 
 ;; show linenumbers
 (global-linum-mode 1)
+
+;; turn off truncate line
+(setq-default truncate-lines t)
+
+;; basic text formatting gunk
+(setq standard-indent 4)
+(setq indent-tabs-mode nil)
+(setq-default fill-column 72)
+
+;; line highlighting
+(global-hl-line-mode 1)
 
 ;; allows configuration to add sub paths without worrying about
 ;; where the concrete path is
