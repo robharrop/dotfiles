@@ -29,4 +29,7 @@ plugins=(git rvm)
 source $ZSH/oh-my-zsh.sh
 
 # Enable RVM
-[[ -s "/home/rob/.rvm/scripts/rvm" ]] && source "/home/rob/.rvm/scripts/rvm"
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+
+# Local bin path
+export PATH=$PATH:$HOME/bin:/opt/local/bin
