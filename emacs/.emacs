@@ -1,6 +1,7 @@
  ;; the basics
 (line-number-mode 1)
 (column-number-mode 1)
+(ido-mode)
 
 ;; show linenumbers
 (global-linum-mode 1)
@@ -40,3 +41,4 @@
 ;; load modules
 (require 'lua-config)
 (require 'ruby-config)
+(require 'yaml-config)
