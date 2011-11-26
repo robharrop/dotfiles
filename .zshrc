@@ -32,4 +32,4 @@ source $ZSH/oh-my-zsh.sh
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Local bin path
-export PATH=$PATH:$HOME/bin:/opt/local/bin
+export PATH=/opt/local/bin:$HOME/bin:$PATH
