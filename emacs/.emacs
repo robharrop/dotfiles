@@ -44,3 +44,4 @@
 (require 'lua-config)
 (require 'ruby-config)
 (require 'yaml-config)
+(require 'color-theme-config)

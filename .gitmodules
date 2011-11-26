@@ -4,3 +4,6 @@
 [submodule "emacs/yaml-mode"]
 	path = emacs/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "emacs/color-theme-solarized"]
+	path = emacs/color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
