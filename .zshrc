@@ -28,8 +28,11 @@ plugins=(git rvm)
 
 source $ZSH/oh-my-zsh.sh
 
+# Force 256 colour terminal
+export TERM=xterm-256color
+
 # Enable RVM
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Local bin path
-export PATH=$PATH:$HOME/bin:/opt/local/bin
+export PATH=/opt/local/bin:$HOME/bin:$PATH
