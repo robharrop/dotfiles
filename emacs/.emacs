@@ -45,3 +45,4 @@
 (require 'ruby-config)
 (require 'yaml-config)
 (require 'color-theme-config)
+(require 'textmate-config)

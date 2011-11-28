@@ -7,3 +7,6 @@
 [submodule "emacs/color-theme-solarized"]
 	path = emacs/color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "emacs/textmate-mode"]
+	path = emacs/textmate-mode
+	url = https://github.com/defunkt/textmate.el.git
