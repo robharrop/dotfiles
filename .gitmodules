@@ -13,3 +13,6 @@
 [submodule "emacs/textmate-mode"]
 	path = emacs/textmate-mode
 	url = https://github.com/defunkt/textmate.el.git
+[submodule "emacs/cucumber-mode"]
+	path = emacs/cucumber
+	url = https://github.com/michaelklishin/cucumber.el.git

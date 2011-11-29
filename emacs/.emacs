@@ -42,6 +42,7 @@
 
 ;; load modules
 (require 'color-theme-config)
+(require 'cucumber-config)
 (require 'lua-config)
 (require 'markdown-config)
 (require 'ruby-config)
