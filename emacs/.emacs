@@ -45,5 +45,6 @@
 (require 'lua-config)
 (require 'markdown-config)
 (require 'ruby-config)
+(require 'textmate-config)
 (require 'yaml-config)
 
