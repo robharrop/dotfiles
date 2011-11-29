@@ -41,7 +41,9 @@
 (add-to-list 'load-path config-dir)
 
 ;; load modules
+(require 'color-theme-config)
 (require 'lua-config)
+(require 'markdown-config)
 (require 'ruby-config)
 (require 'yaml-config)
-(require 'color-theme-config)
+
