@@ -36,3 +36,6 @@ export TERM=xterm-256color
 
 # Local bin path
 export PATH=/opt/local/bin:$HOME/bin:$PATH
+
+# Aliases
+alias e='emacs -nw'
