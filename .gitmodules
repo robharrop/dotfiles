@@ -16,3 +16,6 @@
 [submodule "emacs/cucumber-mode"]
 	path = emacs/cucumber
 	url = https://github.com/michaelklishin/cucumber.el.git
+[submodule "emacs/rhtml-mode"]
+	path = emacs/rhtml-mode
+	url = https://github.com/eschulte/rhtml.git

@@ -53,6 +53,7 @@
 (require 'lua-config)
 (require 'markdown-config)
 (require 'ruby-config)
+(require 'smart-tab-config)
 (require 'textmate-config)
 (require 'yaml-config)
 
