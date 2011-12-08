@@ -19,3 +19,9 @@
 [submodule "emacs/rhtml-mode"]
 	path = emacs/rhtml-mode
 	url = https://github.com/eschulte/rhtml.git
+[submodule "emacs/rvm-mode"]
+	path = emacs/rvm-mode
+	url = https://github.com/senny/rvm.el.git
+[submodule "emacs/yari-mode"]
+	path = emacs/yari-mode
+	url = https://github.com/hron/yari.el
