@@ -39,3 +39,19 @@ export PATH=/opt/local/bin:$HOME/bin:$PATH
 
 # Aliases
 alias e='emacs -nw'
+
+# EC2 stuff
+EC2_ROOT="${HOME}/.ec2"
+EC2_TOOLS="${EC2_ROOT}/tools"
+
+if [[ -d $EC2_TOOLS ]]; then
+    ## tools on the path
+    export PATH=$PATH:$EC2_TOOLS/bin
+
+    ## certs if the exist
+    EC2_CERT="${EC2_ROOT}/cert-XAORE3N6ZBMKT4T65OBU3F4VZJECOAAX.pem"
+    EC2_PRIVATE_KEY="${EC2_ROOT}/pk-XAORE3N6ZBMKT4T65OBU3F4VZJECOAAX.pem"
+
+    [[ -f $EC2_CERT ]] && export EC2_CERT
+    [[ -f $EC2_PRIVATE_KEY ]] && export EC2_PRIVATE_KEY
+fi
