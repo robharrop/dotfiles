@@ -29,6 +29,19 @@
                   (file-truename
                    (or load-file-name buffer-file-name))))
 
+;; setup temp and back file locations
+(defvar user-temporary-file-directory
+  (concat temporary-file-directory user-login-name "/"))
+(make-directory user-temporary-file-directory t)
+(setq backup-by-copying t)
+(setq backup-directory-alist
+      `(("." . ,user-temporary-file-directory)
+        (,tramp-file-name-regexp nil)))
+(setq auto-save-list-file-prefix
+      (concat user-temporary-file-directory ".auto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,user-temporary-file-directory t)))
+
 ;; allows configuration to add sub paths without worrying about
 ;; where the concrete path is
 (defun add-sub-path (path)
