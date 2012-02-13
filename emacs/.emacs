@@ -69,4 +69,5 @@
 (require 'smart-tab-config)
 (require 'textmate-config)
 (require 'yaml-config)
+(require 'haskell-config)
 
