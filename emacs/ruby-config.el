@@ -20,6 +20,10 @@
 (add-sub-path "yari-mode")
 (require 'yari)
 
-(defun ri-bind-key ()
-  (local-set-key (kbd "C-c r") 'yari))
-(add-hook 'ruby-mode-hook 'ri-bind-key)
+;; unicorn reload
+(define-key global-map (kbd "C-c r")
+  (lambda ()
+    (interactive)
+    (shell-command "ps -A | grep 'unicorn master' | grep -v grep | cut -d' ' -f1 | xargs kill -HUP"
+                   "*shell-command-out*"
+                   "*shell-command-err*")))
