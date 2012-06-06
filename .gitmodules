@@ -25,3 +25,6 @@
 [submodule "emacs/yari-mode"]
 	path = emacs/yari-mode
 	url = https://github.com/hron/yari.el
+[submodule "emacs/haskell-mode"]
+	path = emacs/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git

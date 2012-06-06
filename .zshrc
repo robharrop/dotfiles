@@ -42,11 +42,12 @@ alias e='emacs -nw'
 
 # EC2 stuff
 EC2_ROOT="${HOME}/.ec2"
-EC2_TOOLS="${EC2_ROOT}/tools"
+EC2_HOME="${EC2_ROOT}/tools"
 
-if [[ -d $EC2_TOOLS ]]; then
+if [[ -d $EC2_HOME ]]; then
     ## tools on the path
-    export PATH=$PATH:$EC2_TOOLS/bin
+    export PATH=$PATH:$EC2_HOME/bin
+    export EC2_HOME
 
     ## certs if the exist
     EC2_CERT="${EC2_ROOT}/cert-XAORE3N6ZBMKT4T65OBU3F4VZJECOAAX.pem"
@@ -54,4 +55,11 @@ if [[ -d $EC2_TOOLS ]]; then
 
     [[ -f $EC2_CERT ]] && export EC2_CERT
     [[ -f $EC2_PRIVATE_KEY ]] && export EC2_PRIVATE_KEY
+fi
+
+[[ -f "${EC2_ROOT}/credentials" ]] && source "${EC2_ROOT}/credentials"
+
+# MacOSX-specific stuff
+if [[ "Darwin" == `uname` ]]; then
+    [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
 fi
