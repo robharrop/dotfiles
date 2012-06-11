@@ -56,7 +56,6 @@
  ((string-match "darwin" system-configuration)
   (set-face-attribute 'default nil :font "Menlo-16")))
 
-(message config-dir)
 ;; add current directory to the load path
 (add-to-list 'load-path config-dir)
 
@@ -70,4 +69,5 @@
 (require 'textmate-config)
 (require 'yaml-config)
 (require 'haskell-config)
+(require 'clojure-config)
 
