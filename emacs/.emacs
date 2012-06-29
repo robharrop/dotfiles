@@ -34,7 +34,7 @@
   (concat temporary-file-directory user-login-name "/"))
 (make-directory user-temporary-file-directory t)
 (setq backup-by-copying t)
-(setq backup-directory-alist
+'(setq backup-directory-alist
       `(("." . ,user-temporary-file-directory)
         (,tramp-file-name-regexp nil)))
 (setq auto-save-list-file-prefix
@@ -70,4 +70,3 @@
 (require 'yaml-config)
 (require 'haskell-config)
 (require 'clojure-config)
-

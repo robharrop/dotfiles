@@ -28,3 +28,6 @@
 [submodule "emacs/haskell-mode"]
 	path = emacs/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
+[submodule "emacs/smart-tab"]
+	path = emacs/smart-tab
+	url = https://github.com/genehack/smart-tab.git
