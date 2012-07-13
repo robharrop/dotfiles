@@ -15,6 +15,17 @@
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 72)
 
+;; some simple tweaks
+(fset 'yes-or-no-p 'y-or-n-p)
+(delete-selection-mode t)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(blink-cursor-mode t)
+(show-paren-mode t)
+(column-number-mode t)
+(set-fringe-style -1)
+(tooltip-mode -1)
+
 ;binding for toggling whitespace mode
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
@@ -50,11 +61,7 @@
                                  config-dir)))
 
 ;; set up fonts
-(cond
- ((and (string-match "linux" system-configuration) (eq window-system 'x))
-  (set-face-attribute 'default nil :font "DejaVu Sans Mono-16"))
- ((string-match "darwin" system-configuration)
-  (set-face-attribute 'default nil :font "Menlo-16")))
+(set-frame-font "Menlo-16")
 
 ;; add current directory to the load path
 (add-to-list 'load-path config-dir)

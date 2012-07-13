@@ -35,7 +35,7 @@ export TERM=xterm-256color
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Local bin path
-export PATH=/usr/local/bin:$HOME/bin:$PATH
+export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$PATH
 
 # Aliases
 alias e='emacs -nw'

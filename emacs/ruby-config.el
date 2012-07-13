@@ -11,11 +11,6 @@
 (add-sub-path "rhtml-mode")
 (require 'rhtml-mode)
 
-;; rvm-mode
-(add-sub-path "rvm-mode")
-(require 'rvm)
-(rvm-use-default)
-
 ;; yari
 (add-sub-path "yari-mode")
 (require 'yari)
