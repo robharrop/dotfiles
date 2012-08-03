@@ -63,3 +63,6 @@ fi
 if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
 fi
+
+export AWS_IAM_HOME="/usr/local/Cellar/aws-iam-tools/1.5.0/jars"
+export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master

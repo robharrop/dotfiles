@@ -6,9 +6,9 @@ set nocompatible
 
 set modelines=0
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 set encoding=utf-8
@@ -18,7 +18,6 @@ set showmode
 set showcmd
 set hidden
 set wildmenu
-set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
@@ -33,6 +32,11 @@ set wildmode=longest,list:longest
 set completeopt=menu,preview
 
 let mapleader = ","
+
+nnoremap <leader>n :NERDTreeToggle <cr>
+vnoremap <leader>n :NERDTreeToggle <cr>
+nnoremap <leader>f :NERDTreeFind <cr>
+vnoremap <leader>f :NERDTreeFind <cr>
 
 nnoremap / /\v
 vnoremap / /\v
@@ -68,6 +72,9 @@ vnoremap <F1> <ESC>
 
 nnoremap ; :
 
-colorscheme cloud_midnight
+colorscheme zenburn
+
+set guifont=Inconsolata:h16
 
 :au FocusLost * :wa
+
