@@ -1,0 +1,40 @@
+# Mutt settings that are particular to my gmail account
+# Launch mutt with mutt -F ~/.mutt/.muttrc.gmail
+#
+# Pull in the general mutt settings
+source ~/.muttrc
+
+# Pull in the smtp and imap password settings that we don't keep under
+# version control
+source ~/.mutt/.muttrc.gmail.local
+
+# Pull in the gmail specific aliases
+source ~/.mutt/gmail-aliases.rc
+
+# GMail account specific settings
+set from=rob.harrop@gmail.com
+set realname='Rob Harrop'
+set signature=~/.mutt/gmail-signature
+
+# Settings for receiving mail
+# ~/.mutt/.muttrc.gmail.local should define imap_pass
+set imap_user=rob.harrop@gmail.com
+set folder="imaps://imap.gmail.com:993"
+set spoolfile=+INBOX
+set record="+[Google Mail]/Sent Mail"
+set postponed="+[Google Mail]/Drafts"
+set imap_check_subscribed
+set hostname=gmail.com
+set mail_check=30
+
+# Settings for sending mail
+# ~/.mutt/.muttrc.gmail.local should define smtp_pass
+set smtp_url="smtp://rob.harrop@smtp.gmail.com:587/"
+
+# Caching for gmail account
+set header_cache="~/.mutt/cache/gmail"
+set message_cachedir="~/.mutt/cache/gmail"
+
+# Set up archiving to work the google way...
+macro index,pager \ca "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+
