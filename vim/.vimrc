@@ -76,5 +76,9 @@ colorscheme zenburn
 
 set guifont=Inconsolata:h16
 
+if has("gui_running")
+	set guioptions=-t
+endif
+
 :au FocusLost * :wa
 
