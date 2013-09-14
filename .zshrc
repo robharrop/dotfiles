@@ -101,4 +101,5 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # added by travis gem
-source /Users/robharrop/.travis/travis.sh
+TRAVIS_SH="${HOME}/.travis/travis.sh"
+[[ -f "${TRAVIS_SH}" ]] && source "${TRAVIS_SH}"
