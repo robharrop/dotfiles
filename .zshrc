@@ -24,7 +24,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm)
+plugins=(git rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,8 +34,15 @@ export TERM=xterm-256color
 # Local bin path
 export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/bin:$HOME/bin:$PATH
 
+# Cabal binaries in the path
+export PATH=$HOME/.cabal/bin:$PATH
+
+# Go setup
+export GOPATH=$HOME/dev/gocode
+export PATH=$PATH:$GOPATH/bin
+
 # Aliases
-alias e='vim'
+alias e='mvim -v'
 
 # EC2 stuff
 EC2_ROOT="${HOME}/.ec2"
@@ -92,3 +99,6 @@ export GPG_AGENT_PID
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# added by travis gem
+source /Users/robharrop/.travis/travis.sh
