@@ -49,38 +49,6 @@ if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
 fi
 
-
-# AWS Stuff
-export AWS_IAM_HOME="/usr/local/Cellar/aws-iam-tools/1.5.0/jars"
-export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
-
-# gpg-agent
-local GPG_ENV=$HOME/.gnupg/gpg-agent.env
-
-function start_agent {
-  /usr/bin/env gpg-agent --daemon --write-env-file ${GPG_ENV} > /dev/null
-  chmod 600 ${GPG_ENV}
-  . ${GPG_ENV} > /dev/null
-}
-
-# Source GPG agent settings, if applicable
-if [ -f "${GPG_ENV}" ]; then
-  . ${GPG_ENV} > /dev/null
-  GPG_AGENT_DATA=("${(s/:/)GPG_AGENT_INFO}")
-  GPG_AGENT_PID=$GPG_AGENT_DATA[2]
-  ps -ef | grep ${GPG_AGENT_PID} | grep gpg-agent > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
-
-export GPG_AGENT_INFO
-export GPG_AGENT_PID
-
-GPG_TTY=$(tty)
-export GPG_TTY
-
 # added by travis gem
 TRAVIS_SH="${HOME}/.travis/travis.sh"
 [[ -f "${TRAVIS_SH}" ]] && source "${TRAVIS_SH}"
