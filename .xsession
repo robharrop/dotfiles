@@ -15,4 +15,6 @@ export GNOME_KEYRING_PID
 chromium-browser &
 terminator &
 
+dropbox start
+
 xmonad

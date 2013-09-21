@@ -1,6 +1,6 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-       , bgColor = "black"
-       , fgColor = "grey"
+Config { font = "xft:inconsolatalgc:pixelsize=16:antialias=true"
+       , bgColor = "#002b36"
+       , fgColor = "#657b83"
        , position = TopW L 90
        , commands = [ Run Weather "EGLC" ["-t"," <tempC>C","-L","14","-H","22","--normal","green","--high","red","--low","lightblue"] 36000
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10

@@ -1,7 +1,15 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.NoBorders
+import XMonad.Layout.SimplestFloat
+import XMonad.Layout.Spiral
+import XMonad.Layout.PerWorkspace(onWorkspace)
+import XMonad.Layout.Tabbed
 import Data.Monoid
+import System.IO
 import System.Exit
  
 import qualified XMonad.StackSet as W
@@ -16,9 +24,6 @@ myTerminal      = "terminator"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
  
--- Width of the window border in pixels.
---
-myBorderWidth   = 1
  
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -61,14 +66,60 @@ myModMask       = mod4Mask
 --
 myWorkspaces = ["1:code", "2:web", "3:comms", "4:scratch"] ++ map show [5..9]
  
--- Border colors for unfocused and focused windows, respectively.
+------------------------------------------------------------------------
+-- Layouts
+-- You can specify and transform your layouts by modifying these values.
+-- If you change layout bindings be sure to use 'mod-shift-space' after
+-- restarting (with 'mod-q') to reset your layout state to the new
+-- defaults, as xmonad preserves your old layout settings by default.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+-- The available layouts. Note that each layout is separated by |||,
+-- which denotes layout choice.
+--
+defaultLayouts = avoidStruts (
+    Tall 1 (3/100) (1/2) |||
+    Mirror (Tall 1 (3/100) (1/2)) |||
+    tabbed shrinkText tabConfig |||
+    Full |||
+    spiral (6/7)) |||
+    noBorders (fullscreenFull Full)
+
+------------------------------------------------------------------------
+-- Colors and borders
+--
+myNormalBorderColor = "#002b36"
+myFocusedBorderColor = "#657b83"
+
+-- Colors for text and backgrounds of each tab when in "Tabbed" layout.
+tabConfig = defaultTheme {
+    activeBorderColor = "#7C7C7C",
+    activeTextColor = "#CEFFAC",
+    activeColor = "#000000",
+    inactiveBorderColor = "#7C7C7C",
+    inactiveTextColor = "#EEEEEE",
+    inactiveColor = "#000000"
+}
+
+-- Color of current window title in xmobar.
+xmobarTitleColor = "green"
+
+-- Color of current workspace in xmobar.
+xmobarCurrentWorkspaceColor = "#CEFFAC"
+
+-- Width of the window border in pixels.
+myBorderWidth = 1
+
  
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
+
+-- |
+-- Helper function which provides ToggleStruts keybinding
+--
+toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
+toggleStrutsKey XConfig{modMask = modm} = (modm, xK_b )
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- launch a terminal
@@ -181,36 +232,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
  
-------------------------------------------------------------------------
--- Layouts:
- 
--- You can specify and transform your layouts by modifying these values.
--- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-q') to reset your layout state to the new
--- defaults, as xmonad preserves your old layout settings by default.
---
--- * NOTE: XMonad.Hooks.EwmhDesktops users must remove the obsolete
--- ewmhDesktopsLayout modifier from layoutHook. It no longer exists.
--- Instead use the 'ewmh' function from that module to modify your
--- defaultConfig as a whole. (See also logHook, handleEventHook, and
--- startupHook ewmh notes.)
---
--- The available layouts.  Note that each layout is separated by |||,
--- which denotes layout choice.
---
-myLayout = tiled ||| Mirror tiled ||| Full
-  where
-    -- default tiling algorithm partitions the screen into two panes
-    tiled   = Tall nmaster delta ratio
- 
-    -- The default number of windows in the master pane
-    nmaster = 1
- 
-    -- Default proportion of screen occupied by master pane
-    ratio   = 1/2
- 
-    -- Percent of screen to increment by when resizing panes
-    delta   = 3/100
+myLayout = defaultLayouts
  
 ------------------------------------------------------------------------
 -- Window rules:
@@ -257,6 +279,14 @@ myEventHook = mempty
 -- It will add EWMH logHook actions to your custom log hook by
 -- combining it with ewmhDesktopsLogHook.
 --
+myXmobarPP = xmobarPP  
+           { ppTitle = xmobarColor "#657b83" "" . shorten 1000   
+           , ppCurrent = xmobarColor "#c0c0c0" "" . wrap "" ""
+           , ppSep     = xmobarColor "#c0c0c0" "" " | "
+           , ppUrgent  = xmobarColor "#ff69b4" ""
+           , ppLayout = const "" -- to disable the layout info on xmobar  
+           } 
+
 myLogHook = return ()
  
 ------------------------------------------------------------------------
@@ -280,7 +310,7 @@ myStartupHook = return ()
  
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< xmobar defaults
+main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey defaults
  
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -305,10 +335,10 @@ defaults = defaultConfig {
         mouseBindings      = myMouseBindings,
  
       -- hooks, layouts
-        layoutHook         = avoidStruts $ myLayout,
+        layoutHook         = myLayout,
+	logHook		   = myLogHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 

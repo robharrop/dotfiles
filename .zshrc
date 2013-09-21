@@ -41,6 +41,9 @@ export PATH=$HOME/.cabal/bin:$PATH
 export GOPATH=$HOME/dev/gocode
 export PATH=$PATH:$GOPATH/bin
 
+# rbenv setup
+[[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
+
 # Aliases
 alias e='mvim -v'
 
