@@ -24,7 +24,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux rake z sublime osx golang)
+plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,16 +37,12 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/us
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
-# Go setup
-export GOPATH=$HOME/dev/gocode
-export GOROOT=`go env GOROOT`
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
 
 # Aliases
 alias e='mvim -v'
+export EDITOR='mvim -v'
 
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
