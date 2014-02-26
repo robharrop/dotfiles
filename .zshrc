@@ -37,15 +37,12 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/us
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
-# Go setup
-export GOPATH=$HOME/dev/gocode
-export PATH=$PATH:$GOPATH/bin
-
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
 
 # Aliases
 alias e='mvim -v'
+export EDITOR='mvim -v'
 
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
