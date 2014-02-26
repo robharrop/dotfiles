@@ -24,7 +24,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux rake)
+plugins=(git rbenv rails brew bundler tmux rake z sublime osx golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,7 +39,8 @@ export PATH=$HOME/.cabal/bin:$PATH
 
 # Go setup
 export GOPATH=$HOME/dev/gocode
-export PATH=$PATH:$GOPATH/bin
+export GOROOT=`go env GOROOT`
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
