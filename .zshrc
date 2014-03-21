@@ -37,9 +37,6 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/us
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
-# rbenv setup
-[[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
-
 # Aliases
 alias e='mvim -v'
 export EDITOR='mvim -v'
