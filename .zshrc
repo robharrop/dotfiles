@@ -37,6 +37,9 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/us
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
+# Anaconda Setup
+[[ -e "${HOME}/anaconda" ]] && export PATH=${HOME}/anaconda/bin:$PATH
+
 # Aliases
 alias e='mvim -v'
 export EDITOR='mvim -v'
