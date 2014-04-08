@@ -44,6 +44,10 @@ export PATH=$HOME/.cabal/bin:$PATH
 alias e='mvim -v'
 export EDITOR='mvim -v'
 
+# Banco Stuff
+export UMBRELLA=$HOME/dev/banco
+alias um='cd $UMBRELLA'
+
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
