@@ -46,6 +46,10 @@ export EDITOR='mvim -v'
 
 alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://firstbanco.atlassian.net/browse/\1_' | xargs open"
 
+# Banco Stuff
+export UMBRELLA=$HOME/dev/banco
+alias um='cd $UMBRELLA'
+
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
