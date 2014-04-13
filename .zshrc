@@ -7,21 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="blinks"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang)
@@ -41,14 +26,38 @@ export PATH=$HOME/.cabal/bin:$PATH
 [[ -e "${HOME}/anaconda" ]] && export PATH=${HOME}/anaconda/bin:$PATH
 
 # Aliases
-alias e='mvim -v'
 export EDITOR='mvim -v'
+alias e='mvim -v'
+alias gpg='gpg2'
 
 alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://firstbanco.atlassian.net/browse/\1_' | xargs open"
 
 # Banco Stuff
 export UMBRELLA=$HOME/dev/banco
 alias um='cd $UMBRELLA'
+
+# gpg-agent
+local GPG_ENV=$HOME/.gnupg/gpg-agent.env
+function start_agent {
+  /usr/bin/env gpg-agent --daemon --write-env-file ${GPG_ENV} > /dev/null
+  chmod 600 ${GPG_ENV}
+  . ${GPG_ENV} > /dev/null
+}
+# Source GPG agent settings, if applicable
+if [ -f "${GPG_ENV}" ]; then
+  . ${GPG_ENV} > /dev/null
+  GPG_AGENT_DATA=("${(s/:/)GPG_AGENT_INFO}")
+  GPG_AGENT_PID=$GPG_AGENT_DATA[2]
+  ps -ef | grep ${GPG_AGENT_PID} | grep gpg-agent > /dev/null || {
+    start_agent;
+  }
+else
+  start_agent;
+fi
+export GPG_AGENT_INFO
+export GPG_AGENT_PID
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
