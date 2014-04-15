@@ -1,0 +1,24 @@
+#!/bin/sh
+pwd=`pwd`
+proj_name=`basename ${pwd}`
+stamp_file=".${proj_name}.stamp"
+lock_file=".${proj_name}.lock"
+
+function stamp {
+echo `cat ${stamp_file} 2> /dev/null || echo '-1'`
+}
+
+s1="$(stamp)"
+lockfile $lock_file
+s2="$(stamp)"
+
+if [ "$s1" = "$s2" ]
+then
+echo "Migrating"
+cd $pwd && bundle exec rake db:create && bundle exec rake db:migrate
+date +"%s" > $stamp_file
+else
+echo "Migrate completed in other window"
+fi
+
+rm -f $lock_file
