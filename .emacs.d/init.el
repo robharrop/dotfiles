@@ -26,6 +26,10 @@
    color-theme
    color-theme-solarized
    enh-ruby-mode
+   yasnippet
+   smartparens
+   multiple-cursors
+   web-mode
 
    (:name ag
       :after (progn
