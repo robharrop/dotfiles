@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
 # Local bin path
-export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/bin:$HOME/bin:$PATH
+export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH
 
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
@@ -29,6 +29,9 @@ export PATH=$HOME/.cabal/bin:$PATH
 export EDITOR='mvim -v'
 alias e='mvim -v'
 alias gpg='gpg2'
+alias b='gradle --daemon'
+alias bb='gradle --daemon build'
+alias bt='gradle --daemon test'
 
 alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://firstbanco.atlassian.net/browse/\1_' | xargs open"
 
