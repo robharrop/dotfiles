@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'erb'
+
+project = ARGV[0]
+unless project
+  puts "Usage: tm <project_name>"
+  exit
+end
+
+tm_dir = "#{ENV['HOME']}/.tmuxinator"
+proj_file = File.join(tm_dir, "#{project}.yml")
+tmpl_file = "#{proj_file}.erb"
+
+if File.exists?(tmpl_file)
+  erbd = ERB.new(File.read(tmpl_file), nil, "<>").result(binding)
+  File.write(proj_file, erbd)
+end
+
+unless File.exists?(proj_file)
+  puts "Cannot find tmuxinator config at #{proj_file}"
+end
+
+tmuxinator = `which tmuxinator`.chomp
+puts erbd
+Kernel.exec("#{tmuxinator} start #{project}") if ARGV[1]
