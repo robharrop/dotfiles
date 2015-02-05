@@ -9,7 +9,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang)
+plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle)
 
 source $ZSH/oh-my-zsh.sh
 
