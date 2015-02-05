@@ -22,12 +22,16 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin:$P
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
+# rbenv setup
+[[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
+
 # Anaconda Setup
 [[ -e "${HOME}/anaconda" ]] && export PATH=${HOME}/anaconda/bin:$PATH
 
 # Aliases
 export EDITOR='mvim -v'
 alias e='mvim -v'
+
 alias gpg='gpg2'
 alias b='gradle --daemon'
 alias bb='gradle --daemon build'
