@@ -42,6 +42,8 @@ alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://fi
 # Banco Stuff
 export UMBRELLA=$HOME/dev/banco
 alias um='cd $UMBRELLA'
+[ ! -f $HOME/.umbrella ] && ln -s $UMBRELLA $HOME/.umbrella
+export PATH=$UMBRELLA/bin:$PATH
 
 # gpg-agent
 local GPG_ENV=$HOME/.gnupg/gpg-agent.env
