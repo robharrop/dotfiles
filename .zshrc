@@ -9,7 +9,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle)
+plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,7 +24,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 
 # Umbrella bins in path
 export PATH=$PATH:$HOME/.umbrella/bin
-
+#
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
 
