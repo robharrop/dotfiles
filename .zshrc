@@ -9,7 +9,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang)
+plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,12 +25,16 @@ export PATH=$HOME/.cabal/bin:$PATH
 # Umbrella bins in path
 export PATH=$PATH:$HOME/.umbrella/bin
 
+# rbenv setup
+[[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
+
 # Anaconda Setup
 [[ -e "${HOME}/anaconda" ]] && export PATH=${HOME}/anaconda/bin:$PATH
 
 # Aliases
 export EDITOR='mvim -v'
 alias e='mvim -v'
+
 alias gpg='gpg2'
 alias b='gradle --daemon'
 alias bb='gradle --daemon build'
@@ -41,6 +45,8 @@ alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://fi
 # Banco Stuff
 export UMBRELLA=$HOME/dev/banco
 alias um='cd $UMBRELLA'
+[ ! -f $HOME/.umbrella ] && ln -s $UMBRELLA $HOME/.umbrella
+export PATH=$UMBRELLA/bin:$PATH
 
 # gpg-agent
 local GPG_ENV=$HOME/.gnupg/gpg-agent.env
