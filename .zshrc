@@ -22,9 +22,6 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin:$P
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
 
-# Umbrella bins in path
-export PATH=$PATH:$HOME/.umbrella/bin
-#
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
 
