@@ -9,3 +9,7 @@ let g:haddock_browser="open"
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 
+" R-plugin stuff
+let maplocalleader = ","
+let g:vimrplugin_insert_mode_cmds = 0
+
