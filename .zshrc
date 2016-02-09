@@ -37,14 +37,6 @@ alias b='gradle --daemon'
 alias bb='gradle --daemon build'
 alias bt='gradle --daemon test'
 
-alias jira="git rev-parse --abbrev-ref HEAD | sed -E 's_(FB-[0-9]+).*_https://firstbanco.atlassian.net/browse/\1_' | xargs open"
-
-# Banco Stuff
-export UMBRELLA=$HOME/dev/banco
-alias um='cd $UMBRELLA'
-[ ! -f $HOME/.umbrella ] && ln -s $UMBRELLA $HOME/.umbrella
-export PATH=$UMBRELLA/bin:$PATH
-
 # gpg-agent
 local GPG_ENV=$HOME/.gnupg/gpg-agent.env
 function start_agent {
@@ -72,7 +64,3 @@ export GPG_TTY
 if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
 fi
-
-# added by travis gem
-TRAVIS_SH="${HOME}/.travis/travis.sh"
-[[ -f "${TRAVIS_SH}" ]] && source "${TRAVIS_SH}"
