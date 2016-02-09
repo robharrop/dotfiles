@@ -1,2 +1,3 @@
 Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/Vim-R-plugin'
+Bundle 'vim-airline/vim-airline-themes'
