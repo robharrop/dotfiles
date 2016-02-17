@@ -28,6 +28,9 @@ export PATH=$HOME/.cabal/bin:$PATH
 # Anaconda Setup
 [[ -e "${HOME}/anaconda" ]] && export PATH=${HOME}/anaconda/bin:$PATH
 
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN=1f40c47b53ab580cdc6d2284cc1eb045878325de
+
 # Aliases
 export EDITOR='mvim -v'
 alias e='mvim -v'
