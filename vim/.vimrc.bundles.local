@@ -1,4 +1,12 @@
 Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/Vim-R-plugin'
+<<<<<<< HEAD
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'reedes/vim-pencil'
+=======
+Bundle 'hashivim/vim-terraform'
+Bundle 'hashivim/vim-packer'
+Bundle 'reedes/vim-pencil'
+Bundle 'bnbeckwith/vim-writegood'
+
+>>>>>>> 3184fbe19c6c2afd4ddf5f6993a7820e35f07af4
