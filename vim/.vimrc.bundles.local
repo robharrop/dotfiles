@@ -1,6 +1,5 @@
 Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/Vim-R-plugin'
-Bundle 'vim-airline/vim-airline-themes'
 Bundle 'hashivim/vim-terraform'
 Bundle 'hashivim/vim-packer'
 Bundle 'reedes/vim-pencil'
