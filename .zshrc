@@ -9,7 +9,7 @@ ZSH_THEME="blinks"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle aws)
+plugins=(gpg-agent git rbenv rails brew bundler tmux tmuxinator rake z sublime osx golang gradle aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -21,6 +21,9 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin:$P
 
 # Cabal binaries in the path
 export PATH=$HOME/.cabal/bin:$PATH
+
+# Cargo on the path
+export PATH=$HOME/.cargo/bin:$PATH
 
 # rbenv setup
 [[ -f "${HOME}/.rbenv" ]] && export PATH="${HOME}/.rbenv/bin:${PATH}"
@@ -40,30 +43,10 @@ alias b='gradle --daemon'
 alias bb='gradle --daemon build'
 alias bt='gradle --daemon test'
 
-# gpg-agent
-local GPG_ENV=$HOME/.gnupg/gpg-agent.env
-function start_agent {
-  /usr/bin/env gpg-agent --daemon --write-env-file ${GPG_ENV} > /dev/null
-  chmod 600 ${GPG_ENV}
-  . ${GPG_ENV} > /dev/null
-}
-# Source GPG agent settings, if applicable
-if [ -f "${GPG_ENV}" ]; then
-  . ${GPG_ENV} > /dev/null
-  GPG_AGENT_DATA=("${(s/:/)GPG_AGENT_INFO}")
-  GPG_AGENT_PID=$GPG_AGENT_DATA[2]
-  ps -ef | grep ${GPG_AGENT_PID} | grep gpg-agent > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
-export GPG_AGENT_INFO
-export GPG_AGENT_PID
-GPG_TTY=$(tty)
-export GPG_TTY
-
 # MacOSX-specific stuff
 if [[ "Darwin" == `uname` ]]; then
     [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=`/usr/libexec/java_home`
 fi
+
+export NVM_DIR="/Users/robharrop/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
