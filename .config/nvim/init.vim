@@ -20,7 +20,7 @@ set hlsearch                    " Highlight search terms
 set linespace=0                 " No extra spaces between rows
 set number                      " Line numbers on
 
-# Toggle search highlighting
+" Toggle search highlighting
 nmap <silent> <leader>/ :set invhlsearch<CR>
 
 " NERDTree
