@@ -2,6 +2,7 @@
 let
   fish = pkgs.fish;
   fenv = pkgs.fish-foreign-env;
+  starship = pkgs.starship;
 
   aliasConfig = writeTextFile {
     name = "aliases.fish";
@@ -17,7 +18,8 @@ let
     text = ''
     set fish_function_path ${fenv}/share/fish-foreign-env/functions $fish_function_path
     fenv source ~/.nix-profile/etc/profile.d/nix.sh
+    ${starship}/bin/starship init fish | source
     '';
   };
 in
-  [fish fenv fishConfig aliasConfig]
+  [fish fenv fishConfig aliasConfig starship]

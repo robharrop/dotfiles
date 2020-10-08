@@ -4,6 +4,7 @@ let
     setup = 
     [
         fish
+        tmux
 
         pkgs.curl
         pkgs.direnv
@@ -12,10 +13,10 @@ let
         pkgs.less
         pkgs.cacert
         pkgs.nix
-        pkgs.starship
         pkgs.pstree
     ];
 
     fish = callPackage ./fish {};
+    tmux = callPackage ./tmux {};
 in
     setup
