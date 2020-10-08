@@ -1,7 +1,3 @@
-starship init fish | source
-
-status --is-interactive; and source (rbenv init -|psub)
-
 alias g='git'
 alias ga='git add'
 alias gc='git commit'
@@ -13,3 +9,8 @@ alias gp='git push'
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
+
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcr='docker-compose run'
