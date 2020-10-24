@@ -22,7 +22,6 @@
       home.packages = [
         pkgs.ag
         pkgs.cacert
-        pkgs.direnv
         pkgs.htop
         pkgs.jq
         pkgs.less

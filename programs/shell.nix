@@ -10,6 +10,12 @@ let
     paths;
 in
 {
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    enableNixDirenvIntegration = true;
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
