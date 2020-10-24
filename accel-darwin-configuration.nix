@@ -2,9 +2,9 @@
 
 let
   user = {
-    username = "robharrop";
+    username = "rharrop";
     name = "Rob Harrop";
-    email = "rob.harrop@gmail.com";
+    email = "rharrop@accel.com";
   };
 in
 {
