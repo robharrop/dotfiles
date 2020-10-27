@@ -3,6 +3,11 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+  fonts.enableFontDir = true;
+  fonts.fonts = [
+    pkgs.jetbrains-mono
+  ];
+
   system.keyboard = {
     enableKeyMapping = true;
 
