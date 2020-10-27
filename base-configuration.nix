@@ -3,6 +3,26 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+  system.keyboard = {
+    enableKeyMapping = true;
+
+    # use caps lock as ctrl instead of YELLING
+    remapCapsLockToControl = true;
+  };
+
+  system.defaults = {
+    trackpad = {
+      # drag with three fingers
+      TrackpadThreeFingerDrag = true;
+    };
+    dock = {
+      tilesize = 40;
+      show-recents = false;
+    };
+  };
+
+  system.defaults.dock.autohide = true;
+
   environment.systemPackages = [ pkgs.nodejs ];
 
   # Need ZSH in the global namespace otherwise
