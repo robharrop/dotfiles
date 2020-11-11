@@ -1,12 +1,21 @@
 { config, pkgs, user, ... }:
 
-{
+let
+  extensions = (with pkgs.vscode-extensions; [
+    bbenoist.Nix
+    ms-azuretools.vscode-docker
+    vscodevim.vim
+  ]);
+
+  vscode =
+    pkgs.vscode-with-extensions.override { vscodeExtensions = extensions; };
+in {
+  nixpkgs.config.allowUnfree = true;
+
   imports = [ <home-manager/nix-darwin> ];
 
   fonts.enableFontDir = true;
-  fonts.fonts = [
-    pkgs.jetbrains-mono
-  ];
+  fonts.fonts = [ pkgs.jetbrains-mono ];
 
   system.keyboard = {
     enableKeyMapping = true;
@@ -33,18 +42,19 @@
   # Need ZSH in the global namespace otherwise
   # the configuration gets totally screwed up
   programs.zsh.enable = true;
-  
+
   home-manager = {
     useUserPackages = true;
     users."${user.username}" = {
-      
+
       imports = [
         ./programs/shell.nix
         ./programs/tmux.nix
-        (import ./programs/git.nix {inherit pkgs user;})
+        (import ./programs/git.nix { inherit pkgs user; })
       ];
 
       home.packages = [
+        vscode
         pkgs.ag
         pkgs.cacert
         pkgs.htop
