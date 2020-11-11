@@ -1,20 +1,7 @@
 { config, pkgs, user, ... }:
 
-let
-  extensions = (with pkgs.vscode-extensions; [
-    bbenoist.Nix
-    ms-azuretools.vscode-docker
-    vscodevim.vim
-  ]);
-
-  vscode =
-    pkgs.vscode-with-extensions.override { vscodeExtensions = extensions; };
-in {
-  nixpkgs.config.allowUnfree = true;
-
+{
   imports = [ <home-manager/nix-darwin> ];
-
-  nixpkgs.config.allowUnfree = true;
 
   fonts.enableFontDir = true;
   fonts.fonts = [ pkgs.jetbrains-mono ];
@@ -52,11 +39,11 @@ in {
       imports = [
         ./programs/shell.nix
         ./programs/tmux.nix
+        ./programs/vscode.nix
         (import ./programs/git.nix { inherit pkgs user; })
       ];
 
       home.packages = [
-        vscode
         pkgs.ag
         pkgs.cacert
         pkgs.curl
