@@ -7,6 +7,10 @@ in {
     package = git;
     userEmail = user.email;
     userName = user.name;
+
+    delta = {
+      enable = true;
+    };
   };
 
   programs.zsh.shellAliases = {
