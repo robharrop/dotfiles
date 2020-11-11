@@ -3,10 +3,10 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+  nixpkgs.config.allowUnfree = true;
+
   fonts.enableFontDir = true;
-  fonts.fonts = [
-    pkgs.jetbrains-mono
-  ];
+  fonts.fonts = [ pkgs.jetbrains-mono ];
 
   system.keyboard = {
     enableKeyMapping = true;
@@ -33,15 +33,15 @@
   # Need ZSH in the global namespace otherwise
   # the configuration gets totally screwed up
   programs.zsh.enable = true;
-  
+
   home-manager = {
     useUserPackages = true;
     users."${user.username}" = {
-      
+
       imports = [
         ./programs/shell.nix
         ./programs/tmux.nix
-        (import ./programs/git.nix {inherit pkgs user;})
+        (import ./programs/git.nix { inherit pkgs user; })
       ];
 
       home.packages = [
