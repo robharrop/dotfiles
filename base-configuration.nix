@@ -47,6 +47,7 @@
       home.packages = [
         pkgs.ag
         pkgs.cacert
+        pkgs.curl
         pkgs.htop
         pkgs.jq
         pkgs.less
