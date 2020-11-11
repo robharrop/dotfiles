@@ -14,6 +14,8 @@ in {
 
   imports = [ <home-manager/nix-darwin> ];
 
+  nixpkgs.config.allowUnfree = true;
+
   fonts.enableFontDir = true;
   fonts.fonts = [ pkgs.jetbrains-mono ];
 
@@ -57,6 +59,7 @@ in {
         vscode
         pkgs.ag
         pkgs.cacert
+        pkgs.curl
         pkgs.htop
         pkgs.jq
         pkgs.less
