@@ -3,8 +3,6 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  nixpkgs.config.allowUnfree = true;
-
   fonts.enableFontDir = true;
   fonts.fonts = [ pkgs.jetbrains-mono ];
 
@@ -41,6 +39,7 @@
       imports = [
         ./programs/shell.nix
         ./programs/tmux.nix
+        ./programs/vscode.nix
         (import ./programs/git.nix { inherit pkgs user; })
       ];
 
