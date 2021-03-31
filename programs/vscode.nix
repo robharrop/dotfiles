@@ -23,14 +23,26 @@ let
     {
       name = "gitlens";
       publisher = "eamodio";
-      version = "10.2.3";
-      sha256 = "00pddp8jlmqmc9c50vwm6bnkwg9gvvfn8mvrz1l9fl1w88ia1nz0";
+      version = "11.3.0";
+      sha256 = "0py8c5h3pp99r0q9x2dgh1ryp05dbndyc5ipp999z3x1xvwnfrlv";
     }
     {
       name = "prettier-vscode";
       publisher = "esbenp";
-      version = "5.7.2";
-      sha256 = "1wf4dwh11pz2hcy26kvhqnp2bhnk6n0pjh2qs0jsn8sl16656f1f";
+      version = "6.3.1";
+      sha256 = "0m2xx4r2sy00f3wvzi9968rxq345k057ybr21jyvkrwm5569c5mm";
+    }
+    {
+      name = "vscode-graphql";
+      publisher = "GraphQL";
+      version = "0.3.15";
+      sha256 = "03p7xwa6li29fraav2ka4p0i8k9a9ghzyaw51ap91ysawc5xymbg";
+    }
+    {
+      name = "terraform";
+      publisher = "hashicorp";
+      version = "2.9.1";
+      sha256 = "1i4pzxw57hf2g7x62hfsb588b1lz3zjjh8ny96qqrif2bj2h887z";
     }
     {
       name = "haskell";
@@ -41,20 +53,38 @@ let
     {
       name = "language-haskell";
       publisher = "justusadam";
-      version = "3.3.0";
-      sha256 = "1285bs89d7hqn8h8jyxww7712070zw2ccrgy6aswd39arscniffs";
+      version = "3.4.0";
+      sha256 = "0ab7m5jzxakjxaiwmg0jcck53vnn183589bbxh3iiylkpicrv67y";
+    }
+    {
+      name = "Kotlin";
+      publisher = "mathiasfrohlich";
+      version = "1.7.1";
+      sha256 = "0zi8s1y9l7sfgxfl26vqqqylsdsvn5v2xb3x8pcc4q0xlxgjbq1j";
     }
     {
       name = "vscode-docker";
       publisher = "ms-azuretools";
-      version = "1.7.0";
-      sha256 = "0xl5y36kwh59mnb9j1pnsl5bn62z4n4lvsp31r1xscxrs9vh1ngb";
+      version = "1.11.0";
+      sha256 = "141800jcxslqa5nbwcdj4mwnysa42mxligvc073gf225ns984vfr";
+    }
+    {
+      name = "python";
+      publisher = "ms-python";
+      version = "2021.3.680753044";
+      sha256 = "1a1krskjpwylf2ww8a48kkzd6q2x6rkyamjr576qdm4wl3f9smy5";
+    }
+    {
+      name = "jupyter";
+      publisher = "ms-toolsai";
+      version = "2021.5.702919634";
+      sha256 = "0z27nmmn3lx8daywvqc1gx1zgj77i19ahmixf7pn8wvxkp17mzk6";
     }
     {
       name = "ruby";
       publisher = "rebornix";
-      version = "0.27.0";
-      sha256 = "1y0fvciqxkj7nwvh4x25vrjfk1rym9h5fd38s89qfla36ac88fpr";
+      version = "0.28.1";
+      sha256 = "179g7nc6mf5rkha75v7rmb3vl8x4zc6qk1m0wn4pgylkxnzis18w";
     }
     {
       name = "rust";
@@ -63,16 +93,22 @@ let
       sha256 = "039ns854v1k4jb9xqknrjkj8lf62nfcpfn0716ancmjc4f0xlzb3";
     }
     {
+      name = "scala";
+      publisher = "scala-lang";
+      version = "0.5.2";
+      sha256 = "1b8ydigspgr2cni86cqrd0md61ks62y9qca3ia6dq11pvfdwxbsd";
+    }
+    {
       name = "vim";
       publisher = "vscodevim";
-      version = "1.17.1";
-      sha256 = "10f8jz52gr6k2553awa66m006wszj9z2rnshsic6h2aawxiz3zq1";
+      version = "1.19.3";
+      sha256 = "1ar57ad1j07calsa2c350972r5q8833gphg5a04y605wgmwg8d1i";
     }
     {
       name = "vscode-ruby";
       publisher = "wingrunr21";
-      version = "0.27.0";
-      sha256 = "0sd78x44brcmwj0baam58j1j9gx57w7xq52y77jjyrwlac5fxsr8";
+      version = "0.28.0";
+      sha256 = "1gab5cka87zw7i324rz9gmv423rf5sylsq1q1dhfkizmrpwzaxqz";
     }
   ];
 
