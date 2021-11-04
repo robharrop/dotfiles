@@ -2,7 +2,7 @@ autoload -Uz compinit
 compinit
 
 asdf_path=$(brew --prefix asdf)/asdf.sh
-if [[ -f "${asdf_path}"] ]; then
+if [[ -f "${asdf_path}" ]]; then
 	. $asdf_path
 fi
 
@@ -21,6 +21,7 @@ alias ga="g add"
 alias gc="g commit"
 alias gco="g checkout"
 alias gcm="gco master"
+alias gd="g diff"
 alias gst="g status"
 alias gl="g pull"
 alias gp="g push"
