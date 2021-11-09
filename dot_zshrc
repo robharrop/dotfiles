@@ -45,7 +45,11 @@ alias tfp="terraform plan"
 alias tfv="terraform validate"
 alias tfa="terraform apply"
 
-export EDITOR=vim
+alias e="nvim"
+alias cm="chezmoi"
+alias tmux="tmux -2"
+
+export EDITOR=nvim
 bindkey -e
 
 export PATH=$PATH:$HOME/.local/bin
@@ -54,3 +58,4 @@ export PATH=$PATH:$HOME/.local/bin
 export SDKMAN_DIR="/Users/robharrop/.sdkman"
 [[ -s "/Users/robharrop/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robharrop/.sdkman/bin/sdkman-init.sh"
 
+[ -f "/Users/robharrop/.ghcup/env" ] && source "/Users/robharrop/.ghcup/env" # ghcup-env
