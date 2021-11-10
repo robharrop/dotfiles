@@ -11,8 +11,12 @@ call plug#begin("~/.vim/plugged")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
+  Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
+" Basics
+set relativenumber!
+set tabstop=4
 
 " Basic keyboard shortcuts
 
