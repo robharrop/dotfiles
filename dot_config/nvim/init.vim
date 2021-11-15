@@ -17,6 +17,7 @@ call plug#end()
 " Basics
 set relativenumber!
 set tabstop=4
+colorscheme nord
 
 " Basic keyboard shortcuts
 
