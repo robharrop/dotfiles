@@ -1,7 +1,14 @@
 autoload -Uz compinit
 compinit
 
-asdf_path=$(brew --prefix asdf)/asdf.sh
+export PATH=$PATH:$HOME/.local/bin
+
+if command -v brew; then 
+	asdf_path=$(brew --prefix asdf)/asdf.sh
+else
+	asdf_path="${HOME}/.asdf/asdf.sh"
+fi
+
 if [[ -f "${asdf_path}" ]]; then
 	. $asdf_path
 fi
@@ -54,10 +61,9 @@ alias tmux="tmux -2"
 export EDITOR=nvim
 bindkey -e
 
-export PATH=$PATH:$HOME/.local/bin
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/robharrop/.sdkman"
-[[ -s "/Users/robharrop/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robharrop/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="${HOME}/.sdkman"
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 [ -f "/Users/robharrop/.ghcup/env" ] && source "/Users/robharrop/.ghcup/env" # ghcup-env
