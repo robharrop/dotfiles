@@ -14,12 +14,31 @@ call plug#begin("~/.vim/plugged")
   Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-" Basics
+" ------------------------
+" BASICS
+" ------------------------
 set relativenumber!
+set number
+
 set tabstop=4
+set shiftwidth=4
+
+set ignorecase
+set smartcase
+
+set nowrap
+
+set scrolloff=8 " Prevent scrolling right to the top/bottom of the screen
+
+set updatetime=300 " Reduce time for highlighting other references
+set redrawtime=10000 " Allow more time for loading syntax on large files
+
+" Nord colours
 colorscheme nord
 
-" Basic keyboard shortcuts
+" ------------------------
+" KEYMAPS
+" ------------------------
 
 " Comma as leader
 let mapleader = ','
