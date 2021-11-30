@@ -1,2 +1,6 @@
 Plug 'arcticicestudio/nord-vim'
-autocmd User PlugLoaded ++nested colorscheme nord
+
+augroup NordSetup
+    autocmd!
+    autocmd User PlugLoaded ++nested colorscheme nord
+augroup END
