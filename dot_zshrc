@@ -37,6 +37,9 @@ alias gp="g push"
 
 alias gpb='g push -u origin `git rev-parse --abbrev-ref HEAD`'
 
+alias prc='gh pr create --web'
+alias prv='gh pr view --web'
+
 alias dc='docker compose'
 alias dcu='docker compose up'
 alias dcl='docker compose logs'
